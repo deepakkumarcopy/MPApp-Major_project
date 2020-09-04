@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Progress Bar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Progress</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item class="item-stable">
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-12">
+            <progress
+              class="progress"
+              max="100"
+              value="{{progress}}"
+            ></progress>
+          </div>
+        </div>
+      </ion-item>
+
+      <!-- <ion-chip color="primary" class="chip1" outline>
+          <ion-label color="primary">Amount Saved:{{sum}}</ion-label>
+        </ion-chip> -->
+      <!-- <ion-text color="danger" slot="end">
+          <h2 >Total:{{amount}}</h2>
+        </ion-text> -->
+      <!-- <ion-chip class="chip2" color="danger"  outline >
+          <ion-label color="danger">Total:{{amount}}</ion-label>
+        </ion-chip> -->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-chip color="primary" outline>
+              <ion-label color="primary">Saved:{{sum}}</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col size="6">
+            <ion-chip color="danger" outline>
+              <ion-label color="danger">Total:{{amount}}</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text color="medium">
+              <h2>{{text}}</h2>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- <ion-item  class="ion-activated"> -->
+      <!-- <ion-icon name="wallet" slot="start"></ion-icon> -->
+
+      <!-- </ion-item> -->
+    </ion-card-content>
+  </ion-card>
+</ion-content>

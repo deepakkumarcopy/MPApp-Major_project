@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="landing-page/savings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="profile-content">
+  <ion-row class="user-details-wrapper">
+    <ion-col size="6" class="user-image-wrapper">
+      <img class="user-image" [src]="user.image" />
+    </ion-col>
+    <ion-col class="user-info-wrapper" size="12">
+      <h3>{{user.name}}</h3>
+      <p>{{user.description}}</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <!-- <ion-item> -->
+      <h4>Mobile</h4>
+
+      <p>
+        {{user.phoneNumber}}
+      </p>
+      <!-- <ion-input placeholder="Mobile"> </ion-input>
+        <ion-icon name="pencil"></ion-icon>
+      </ion-item> -->
+    </ion-col>
+    <ion-col size="12">
+      <h4>Email</h4>
+      <p>
+        {{user.email}}
+      </p>
+    </ion-col>
+    <ion-col size="12">
+      <h4>Auth Provider</h4>
+      <p>
+        {{user.provider}}
+      </p>
+    </ion-col>
+    <ion-col size="12">
+      <ion-button
+        expand="block"
+        fill="outline"
+        color="primary"
+        (click)="signOut()"
+        >Sign out</ion-button
+      >
+    </ion-col>
+  </ion-row>
+</ion-content>
+<!-- <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="profile">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>User Profile</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="expenses">
+      <ion-icon name="wallet"></ion-icon>
+      <ion-label>Expenses</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="map">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>XYZ</ion-label>
+    </ion-tab-button>
+
+    
+  </ion-tab-bar>
+</ion-tabs> -->

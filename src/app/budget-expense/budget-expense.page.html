@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{budgetName}} Transaction</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list *ngFor="let expense of budgetExpenses ">
+		<ion-item group style="border-bottom: 0.5px solid;" (click)="viewExpense(expense.date, expense.amount, expense.category, expense.desc, expense.remark, expense, expense.goals_id)">
+			<label class="label">
+				<h3>{{expense.desc}}</h3>
+				<p>{{expense.date}}</p>
+				<p>{{expense.category}}</p>
+				<p>{{expense.remark}}</p>
+			</label>
+			<div slot="end">
+				<h1 text-right><span style="color:red">${{expense.amount}}</span></h1>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>

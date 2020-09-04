@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Goals</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list *ngFor="let goal of goals">
+		<ion-item style="border-bottom: 1px solid;" (click)="viewGoal(goal.name, goal.amount, goal.startDate, goal.endDate, goal.optional, goal)">
+			<label style="width: 100%;">
+				<h4 style="text-align: center;">{{goal.name}}</h4>
+				<div>Amount: {{goal.amount}}</div>
+				<div>Start Date: {{goal.startDate}}</div>
+				<div>End Date: {{goal.endDate}}</div>
+				<div>{{goal.optional}}</div>
+			</label>
+		</ion-item>
+	</ion-list>
+</ion-content>

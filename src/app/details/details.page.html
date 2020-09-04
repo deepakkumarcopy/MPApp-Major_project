@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Transaction Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="pie-chart"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of detailsList" color="light">
+    <span>
+      <ion-card-header>
+        <ion-card-title>Amount: {{item.Amount}}</ion-card-title>
+        <ion-card-subtitle>Date : {{item.timestamp}}</ion-card-subtitle>
+      </ion-card-header>
+    </span>
+  </ion-card>
+</ion-content>

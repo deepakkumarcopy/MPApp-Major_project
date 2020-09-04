@@ -1,0 +1,26 @@
+progress[value] {
+    -webkit-appearance: none;
+     appearance: none;
+           width: 100% !important;
+
+  }
+  
+  progress[value]::-webkit-progress-bar {
+    background-color: #bfe3ff;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+  
+  progress[value]::-webkit-progress-value {
+    background-color: #3880ff;
+    border-radius: 2px; 
+  }
+  .row{
+      width: 100%;
+  }
+  .chip1{
+      margin-right: 30px;
+  }
+  .chip2{
+      margin-left: 30px;
+  }

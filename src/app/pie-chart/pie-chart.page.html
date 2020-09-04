@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pie-chart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Bar Chart
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button mode="ios" class="btn" size="small" (click)="showdetails()">
+    <ion-icon style="margin-right: 10px;" name="list"></ion-icon>
+
+    Show Details
+  </ion-button>
+</ion-content>

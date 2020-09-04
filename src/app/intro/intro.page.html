@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border" translucent="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="primary" (click)="goLogin()">
+        SKIP
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="intro-img-holder ion-text-center animated fadeInUp delay-2s">
+    <img src="assets/imgs/piggybank.svg" alt="">
+  </div>
+
+  <div class="bottom-holder absolute">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <div class="slide-content ion-text-center ion-padding-horizontal">
+          <h4 class="ion-text-wrap">Welcome to HSAJ's Money Savings App</h4>
+          <p class="ion-text-wrap">Your Personal Money Manager</p>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="slide-content ion-text-center ion-padding-horizontal">
+          <h4 class="ion-text-wrap">Dream it? Achieve it.</h4>
+          <p class="ion-text-wrap">Towards a better financial future</p>
+        </div>
+      </ion-slide>
+     
+    </ion-slides>
+    <div class="btns-holder" paddding-horizontal text-center>
+      <ion-button (click)="goLogin()">
+        Login
+      </ion-button>
+      <ion-button id="signup" fill="none" (click)="goSignup()">
+        Signup
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

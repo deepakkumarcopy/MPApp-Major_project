@@ -1,0 +1,79 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Home</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<img width="150" src="assets/imgs/pig.gif">
+	<ion-grid>
+		<ion-row>
+			<ion-col size="6">
+				<ion-button fill="clear" [routerLink]="['/set-goals']">Add budget</ion-button>
+			</ion-col>
+			<ion-col size="6">
+				<ion-button end fill="clear" [routerLink]="['/goals']">View all budget</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<ion-list *ngFor="let goal of goals">
+		<div>
+			<ion-card [ngClass]="(totalExps[goal.goals_id] == undefined || ((totalExps[goal.goals_id] - goal.amount) < 0)) ? 'withinBudget' : 'alertColor' ">
+
+				<ion-card-header>
+					<ion-card-title style="text-align: center;">{{goal.name}}</ion-card-title>
+				</ion-card-header>
+
+				<ion-item lines="none" (click)='viewBudgetExpenses(goal)' group [ngClass]="(totalExps[goal.goals_id] == undefined || ((totalExps[goal.goals_id] - goal.amount) < 0)) ? 'withinBudget' : 'alertColor' " text-center style="width: 100%;">
+					<!---- <ion-item  group [ngClass]="(totalExps[goal.goals_id] == undefined || ((totalExps[goal.goals_id] - goal.amount) < 0)) ? 'withinBudget' : 'alertColor' " text-center 
+				 (click)="viewGoal(goal.name, goal.amount , goal.startDate, goal.endDate, goal.optional, goal, goal.goals_id)" >-->
+					<label style="width: 100%;">
+						<h1 style="text-align: center;">
+							<span style="font-size:large;"> $ </span>
+							{{(totalExps[goal.goals_id] == undefined) ? 0 : (totalExps[goal.goals_id])}} of $ {{goal.amount}}
+						</h1>
+
+						<p style="text-align: center;">$
+							{{(totalExps[goal.goals_id] == undefined) ? goal.amount : (goal.amount - totalExps[goal.goals_id])}} till budget is reached!</p>
+					</label>
+
+				</ion-item>
+
+				<ion-button (click)="viewGoal(goal.name, goal.amount , goal.startDate, goal.endDate, goal.optional, goal, goal.goals_id)">
+					<ion-icon name="create"></ion-icon>
+				</ion-button>
+				<ion-button color="danger" (click)="deleteGoal(goal.name, goal.amount , goal.startDate, goal.endDate, goal.optional, goal, goal.goals_id)">
+					<ion-icon name="trash"></ion-icon>
+				</ion-button>
+			</ion-card>
+		</div>
+	</ion-list>
+
+	<div class="ion-padding">
+		<h1><span style="font-size:large;"> $ </span>{{totalamount}}</h1>
+		<p>Total Expense</p>
+		<h2> Expenses History</h2>
+	</div>
+
+	<ion-searchbar showcancelbutton (ionInput)="filterList($event)"></ion-searchbar>
+
+	<!--- <button ion-button [navPush]="search"> Search </button>-->
+	<ion-list *ngFor="let expense of expenses">
+		<ion-item group style="border-bottom: 0.5px solid;" (click)="viewExpense(expense.date, expense.amount, expense.category, expense.desc, expense.remark, expense, expense.goals_id)">
+			<div slot="start">
+				<h3>{{expense.desc}}</h3>
+				<p> {{expense.date}}</p>
+				<p>{{expense.category}}</p>
+				<p>{{expense.remark}}</p>
+			</div>
+			<label></label>
+			<h2 slot="end" text-right><span style="color:red">${{expense.amount}}</span></h2>
+		</ion-item>
+	</ion-list>
+
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+		<ion-fab-button (click)="pageScroller()">
+			<ion-icon name="chevron-up-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-content>

@@ -1,0 +1,82 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="sign-in"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Savings Page
+    </ion-title>
+    <ion-icon (click)="presentActionSheet()" style="margin-right: 20px;" name="ellipsis-vertical" slot="end"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of savingsList" color="primary" >
+    <span *ngIf="!item.isEdit; else elseBlock">
+      <ion-card-header>
+        <ion-card-title> Category: {{item.id}}</ion-card-title>
+        <ion-card-subtitle>Amount: {{item.Amount}}</ion-card-subtitle>
+
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-button shape="round" color="secondary" size="small" (click)="savedAmountPrompt(item)">
+          <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+
+        </ion-button>
+        <ion-button shape="round" color="success" size="small" (click)="EditRecord(item)">
+          <ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+
+        </ion-button>
+        <ion-button shape="round" color="danger" size="small" (click)="RemoveRecord(item.id)">
+          <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+
+        </ion-button>
+        <ion-button shape="round" color="medium" size="small" (click)="progress(item)">
+          <ion-icon size="small" slot="icon-only" name="stats-chart"></ion-icon>
+
+        </ion-button>
+        
+    </ion-card-content>
+  </span>
+  <ng-template #elseBlock>
+    <ion-card-header>
+      <ion-card-title>
+        
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+     
+      <ion-item>
+        <ion-label><strong>Amount</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="item.EditAmount"></ion-input>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            
+          </ion-col>
+          <ion-col>
+            <ion-button fill="solid" color="medium" size="small" (click)="item.isEdit = false">
+              Cancel
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button fill="solid" color="success" size="small" (click)="UpdateRecord(item)">
+              Update
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ng-template>
+  
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)=addsavings()>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
